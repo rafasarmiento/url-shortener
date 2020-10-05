@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Acortador de URLs</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Acortador de URLs </h1>
+        <hr>
+        <h2>Ingresa la URL por aquí</h2>
+        <form action="/short" method="post">
+            <div class="form-group col-lg-4">
+                <label for="shortener" class="sr-only">URL:</label>
+                <input type="url" name="shortener" id="shortener" required placeholder="http://xxxxxxxxxxxx"
+                    class="form-control">
+            </div>
+            <div class="form-group col-lg-4">
+                <button type="submit" class="btn btn-primary">Recortar</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <h2>Última URL recortada</h2>
+        <input type="url" name="shortenerResult" id="shortenerResult" readonly value="<%= last %> ">
+    </div>
+    <div class="container">
+        <h2>Registros de enlaces recortados</h2>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>URL completa</th>
+                    <th>URL recortada</th>
+                    <th>Clics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(shortUrl => { %>
+                    <tr>
+                        <td><a href="<%= shortUrl.full %> "><%= shortUrl.full %></a></td>
+                        <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+                        <td><%= shortUrl.clicks %></td>
+                        <td><a class="btn btn-danger" href="/<%= shortUrl.short %> ">Borrar</a></td>
+                    </tr>
+               <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

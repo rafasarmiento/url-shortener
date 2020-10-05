@@ -1,0 +1,32 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "app para recortar URLs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafasarmiento/url-shortener.git"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "express",
+    "mongoDB",
+    "mongoose"
+  ],
+  "author": "Rafael Sarmiento",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafasarmiento/url-shortener/issues"
+  },
+  "homepage": "https://github.com/rafasarmiento/url-shortener#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7",
+    "shortid": "^2.2.15"
+  }
+}
